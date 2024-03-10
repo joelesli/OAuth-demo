@@ -1,0 +1,26 @@
+<h1>OAuth Demo</h1>
+<p>Created with the help of <a href="https://youtu.be/Lut1C6CHDCE?si=w4zNrYeDBBZxyOqs" target="blank">CJ Avilla</a>.</p>
+<p>Only a test user can log in with OAuth: joel.esli@gmail.com.
+    To add a test user reach out to joel.esli@gmail.com.
+</p>
+<p>
+    A user's email is required to be unique and this prototype does not allow a user
+    to authenticate with multiple OAuth providers.
+    To test signing in with a different provider you'll need to delete the test user
+    if the email for different providers is the same.
+</p>
+    <%= button_to 'Delete All Users', delete_all_users_path, method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'button is-danger' %>
+
+<p>
+    <% if user_signed_in? %>
+        <p>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+        </p>
+    <% else %>
+        <p>
+            <%= link_to "Sign in", new_user_session_path(), class: 'button' %>
+            <%= link_to "Sign up", new_user_registration_path(), class: 'button' %>
+        <p>
+    <% end %>
+    
+</p>
